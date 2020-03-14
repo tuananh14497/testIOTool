@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>TestIO Helper</title>
+
+    <style>
+
+      .navText {
+        display: inline-block;
+        text-align: center;
+      }
+    
+      .login-card {
+        position: relative;
+        top: 100px;
+        padding: 40px;
+        width: 40%;
+        background-color: #F7F7F7;
+        margin: 0 auto;
+        border-radius: 20px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+    
+      .login-card h1 {
+        font-weight: 100;
+        text-align: center;
+        font-size: 2.3em;
+      }
+    
+      .login-card input[type=submit] {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+      }
+    
+      .login-card input[type=text],
+      input[type=password] {
+        height: 44px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        border-top: 1px solid #c0c0c0;
+        /* border-radius: 2px; */
+        padding: 0 8px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+    
+      .login-card input[type=text]:hover,
+      input[type=password]:hover {
+        border: 1px solid #b9b9b9;
+        border-top: 1px solid #a0a0a0;
+        -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      }
+    
+      .login {
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Arial', sans-serif;
+        font-weight: 700;
+        height: 36px;
+        padding: 0 8px;
+        /* border-radius: 3px; */
+        /* -webkit-user-select: none;
+      user-select: none; */
+      }
+    
+      .login-submit {
+        /* border: 1px solid #3079ed; */
+        border: 0px;
+        color: #fff;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+        background-color: #4d90fe;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+      }
+    
+      .login-submit:hover {
+        /* border: 1px solid #2f5bb7; */
+        border: 0px;
+        text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+        background-color: #357ae8;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+      }
+    
+      .login-card a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 400;
+        text-align: center;
+        display: inline-block;
+        opacity: 0.6;
+        transition: opacity ease 0.5s;
+      }
+    
+      .login-card a:hover {
+        opacity: 1;
+      }
+
+      .login-help {
+        float: right;
+        width: 50%;
+        height: 38px;
+        text-align: center;
+        font-size: 12px;
+        padding: 10px 0;
+      }
+
+
+    </style>
+  </head>
+
+
+  <body>
+
+    <nav class="navbar navbar-light bg-light" style="background-color: #1d1d1d !important;">
+
+      <a style="padding: 0 !important; color: #fff; font-size: 30px" class="navbar-brand" href="/">
+        <img style="height: 50px !important; width: 72px !important;" src="https://cdn.test.io/assets/logo-adf72cad506b8473ede36bc9ed09507caed354aa780246ee0146afa62419a879.svg">
+        Helper
+      </a>
+
+      <a href="/donate"><button class="btn btn-success my-2 my-sm-0">Donate Me 🥰 </button></a>
+
+    </nav>
+
+
+    <div id="loginCard" class="login-card">
+  
+      <form id="cookieForm" method="POST" action="/submit-form">
+        <div class="form-group">
+          <label>Your Cookie</label>
+          <input id="cookieField" type="text" class="form-control" name="cookieValue" placeholder="Enter Your cookie value here" />
+          <small id="emailHelp" class="form-text text-muted">We'll never share your info with anyone else. and also not
+            storge
+            any where</small>
+        </div>
+  
+        <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+        <button id="loadingBtn" class="btn btn-primary" type="button" disabled>
+          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          Getting Data...
+        </button>
+        <div class="login-help">
+          <a href="/help">Don't know how to get this?</a>
+        </div>
+      </form>
+    </div>
+
+
+
+    <div class="login-card" id="messageCard">
+  
+      <h2>Important!!!</h2>
+      This page is <b>not a part of Test.io</b> . I created this page for freelancer who
+      working on test.io platform and for developer's educational purpose. This
+      site is currently running on very first release without any Data protection so
+      use with care. Developer will not responsible for any user data/infomation
+      lost or leak <br> <br>
+      
+      <button id="okBtn" class="btn btn-primary">Ok. I Understand</button>
+    </div>
+
+
+    <script>
+      $(document).ready(function () {
+        $('#loginCard').hide();
+        $('#loadingBtn').hide();
+
+        $("#okBtn").click(function () {
+          $('#messageCard').hide();
+          $('#loginCard').show();
+
+          if (localStorage.getItem('userCookie') !== 'undefined') {
+            $('#cookieField').val(localStorage.getItem('userCookie'));
+          }
+        });
+
+        // $("#cookieForm").submit(function(e) {
+        //   e.preventDefault();
+        // });
+
+        $('#submitBtn').click(function () {
+          localStorage.setItem('userCookie', $('#cookieField').val());
+
+          $('#submitBtn').hide();
+          $('#loadingBtn').show();
+          $('.login-help').hide();
+        })
+
+        $('.login-help').click(function () {
+          localStorage.clear();
+        })
+
+      });
+
+    </script>
+  
+  </body>
+</html>
