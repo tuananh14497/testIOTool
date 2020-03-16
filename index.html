@@ -203,25 +203,45 @@
         $('#loginCard').hide();
         $('#loadingBtn').hide();
 
+
         $("#okBtn").click(function () {
           $('#messageCard').hide();
           $('#loginCard').show();
 
+
           if (localStorage.getItem('userCookie') !== 'undefined') {
             $('#cookieField').val(localStorage.getItem('userCookie'));
+            if ($('#cookieField').val().length != 0) {
+              $('#submitBtn').attr('disabled', false);
+            }
           }
         });
 
-        // $("#cookieForm").submit(function(e) {
-        //   e.preventDefault();
-        // });
+
+        $('#submitBtn').attr('disabled', true);
+        $('#cookieField').keyup(function() {
+          if ($(this).val().length != 0)
+            $('#submitBtn').attr('disabled', false);            
+          else
+            $('#submitBtn').attr('disabled', true);
+        })
+
+        $("#cookieForm").submit(function(e) {
+          e.preventDefault();
+        });
 
         $('#submitBtn').click(function () {
+
           localStorage.setItem('userCookie', $('#cookieField').val());
 
           $('#submitBtn').hide();
           $('#loadingBtn').show();
           $('.login-help').hide();
+
+          setTimeout(function() {
+              alert('Something went wrong. Please try again in a moment');
+          }, 60000);
+
         })
 
         $('.login-help').click(function () {
