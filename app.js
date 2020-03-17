@@ -16,6 +16,8 @@ const template_bugTracker = fs.readFileSync(`./templates/template_bugTracker.htm
 
 // =========================================================================================
 
+app.use(express.urlencoded());
+
 app.get('/', (req, res) => {
   res.end(homePage);
 });
