@@ -18,7 +18,10 @@ module.exports = async cookieValue => {
   };
 
   ExportVal = (async () => {
-    const browser = await puppeteer.launch(); // {headless: false}
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox'],
+      // headless: false
+    });
     const page = await browser.newPage();
     console.log('Started');
     await page.setViewport({ width: 1280, height: 800 });
