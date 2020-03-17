@@ -34,39 +34,38 @@
     <title>TestIO Helper</title>
 
     <style>
-
       .navText {
         display: inline-block;
         text-align: center;
       }
-    
+
       .login-card {
         position: relative;
         top: 100px;
         padding: 40px;
         width: 40%;
-        background-color: #F7F7F7;
+        background-color: #f7f7f7;
         margin: 0 auto;
         border-radius: 20px;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         overflow: hidden;
       }
-    
+
       .login-card h1 {
         font-weight: 100;
         text-align: center;
         font-size: 2.3em;
       }
-    
-      .login-card input[type=submit] {
+
+      .login-card input[type='submit'] {
         width: 100%;
         display: block;
         margin-bottom: 10px;
         position: relative;
       }
-    
-      .login-card input[type=text],
-      input[type=password] {
+
+      .login-card input[type='text'],
+      input[type='password'] {
         height: 44px;
         font-size: 16px;
         width: 100%;
@@ -80,16 +79,16 @@
         box-sizing: border-box;
         -moz-box-sizing: border-box;
       }
-    
-      .login-card input[type=text]:hover,
-      input[type=password]:hover {
+
+      .login-card input[type='text']:hover,
+      input[type='password']:hover {
         border: 1px solid #b9b9b9;
         border-top: 1px solid #a0a0a0;
         -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
         -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
       }
-    
+
       .login {
         text-align: center;
         font-size: 14px;
@@ -101,7 +100,7 @@
         /* -webkit-user-select: none;
       user-select: none; */
       }
-    
+
       .login-submit {
         /* border: 1px solid #3079ed; */
         border: 0px;
@@ -110,7 +109,7 @@
         background-color: #4d90fe;
         /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
       }
-    
+
       .login-submit:hover {
         /* border: 1px solid #2f5bb7; */
         border: 0px;
@@ -118,7 +117,7 @@
         background-color: #357ae8;
         /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
       }
-    
+
       .login-card a {
         text-decoration: none;
         color: #666;
@@ -128,7 +127,7 @@
         opacity: 0.6;
         transition: opacity ease 0.5s;
       }
-    
+
       .login-card a:hover {
         opacity: 1;
       }
@@ -141,40 +140,57 @@
         font-size: 12px;
         padding: 10px 0;
       }
-
-
     </style>
   </head>
 
-
   <body>
-
-    <nav class="navbar navbar-light bg-light" style="background-color: #1d1d1d !important;">
-
-      <a style="padding: 0 !important; color: #fff; font-size: 30px" class="navbar-brand" href="/">
-        <img style="height: 50px !important; width: 72px !important;" src="https://cdn.test.io/assets/logo-adf72cad506b8473ede36bc9ed09507caed354aa780246ee0146afa62419a879.svg">
+    <nav
+      class="navbar navbar-light bg-light"
+      style="background-color: #1d1d1d !important;"
+    >
+      <a
+        style="padding: 0 !important; color: #fff; font-size: 30px"
+        class="navbar-brand"
+        href="/"
+      >
+        <img
+          style="height: 50px !important; width: 72px !important;"
+          src="https://cdn.test.io/assets/logo-adf72cad506b8473ede36bc9ed09507caed354aa780246ee0146afa62419a879.svg"
+        />
         Helper
       </a>
 
-      <a href="/donate"><button class="btn btn-success my-2 my-sm-0">Donate Me 🥰 </button></a>
-
+      <a href="/donate"
+        ><button class="btn btn-success my-2 my-sm-0">Donate Me 🥰</button></a
+      >
     </nav>
 
-
     <div id="loginCard" class="login-card">
-  
-      <form id="cookieForm" method="POST" action="/submit-form">
+      <form id="cookieForm" method="POST" action="/bugTracker">
         <div class="form-group">
           <label>Your Cookie</label>
-          <input id="cookieField" type="text" class="form-control" name="cookieValue" placeholder="Enter Your cookie value here" />
-          <small id="emailHelp" class="form-text text-muted">We'll never share your info with anyone else. and also not
-            storge
-            any where</small>
+          <input
+            id="cookieField"
+            type="text"
+            class="form-control"
+            name="cookieValue"
+            placeholder="Enter Your cookie value here"
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your info with anyone else. and also not storge
+            any where</small
+          >
         </div>
-  
-        <button id="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+
+        <button id="submitBtn" type="submit" class="btn btn-primary">
+          Submit
+        </button>
         <button id="loadingBtn" class="btn btn-primary" type="button" disabled>
-          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span
+            class="spinner-grow spinner-grow-sm"
+            role="status"
+            aria-hidden="true"
+          ></span>
           Getting Data...
         </button>
         <div class="login-help">
@@ -183,31 +199,26 @@
       </form>
     </div>
 
-
-
     <div class="login-card" id="messageCard">
-  
       <h2>Important!!!</h2>
-      This page is <b>not a part of Test.io</b> . I created this page for freelancer who
-      working on test.io platform and for developer's educational purpose. This
-      site is currently running on very first release without any Data protection so
-      use with care. Developer will not responsible for any user data/infomation
-      lost or leak <br> <br>
-      
+      This page is <b>not a part of Test.io</b> . I created this page for
+      freelancer who working on test.io platform and for developer's educational
+      purpose. This site is currently running on very first release without any
+      Data protection so use with care. Developer will not responsible for any
+      user data/infomation lost or leak <br />
+      <br />
+
       <button id="okBtn" class="btn btn-primary">Ok. I Understand</button>
     </div>
 
-
     <script>
-      $(document).ready(function () {
+      $(document).ready(function() {
         $('#loginCard').hide();
         $('#loadingBtn').hide();
 
-
-        $("#okBtn").click(function () {
+        $('#okBtn').click(function() {
           $('#messageCard').hide();
           $('#loginCard').show();
-
 
           if (localStorage.getItem('userCookie') !== 'undefined') {
             $('#cookieField').val(localStorage.getItem('userCookie'));
@@ -217,21 +228,18 @@
           }
         });
 
-
         $('#submitBtn').attr('disabled', true);
         $('#cookieField').keyup(function() {
           if ($(this).val().length != 0)
-            $('#submitBtn').attr('disabled', false);            
-          else
-            $('#submitBtn').attr('disabled', true);
-        })
-
-        $("#cookieForm").submit(function(e) {
-          e.preventDefault();
+            $('#submitBtn').attr('disabled', false);
+          else $('#submitBtn').attr('disabled', true);
         });
 
-        $('#submitBtn').click(function () {
+        // $('#cookieForm').submit(function(e) {
+        //   e.preventDefault();
+        // });
 
+        $('#submitBtn').click(function() {
           localStorage.setItem('userCookie', $('#cookieField').val());
 
           $('#submitBtn').hide();
@@ -239,18 +247,14 @@
           $('.login-help').hide();
 
           setTimeout(function() {
-              alert('Something went wrong. Please try again in a moment');
+            alert('Something went wrong. Please try again in a moment');
           }, 60000);
+        });
 
-        })
-
-        $('.login-help').click(function () {
+        $('.login-help').click(function() {
           localStorage.clear();
-        })
-
+        });
       });
-
     </script>
-  
   </body>
 </html>

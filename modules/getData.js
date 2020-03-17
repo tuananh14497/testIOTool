@@ -26,7 +26,14 @@ module.exports = async cookieValue => {
     await page.goto(baseUrl);
     console.log('Going To: ' + baseUrl);
     // await page.screenshot({ path: 'testio_login.png' });
-    await page.click('#sidebar_tests_expander > a');
+    try {
+      await page.click('#sidebar_tests_expander > a');
+    } catch (error) {
+      if (error) {
+        console.log('Log In Error')
+        return "logInErr"
+      }
+    }
     await page.waitFor(3000);
 
     console.log('#sidebar_tests_expander Expaned');

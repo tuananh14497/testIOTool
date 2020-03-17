@@ -21,6 +21,11 @@ const template_bugTracker = fs.readFileSync(
   'utf-8'
 );
 
+const loginErPg = fs.readFileSync(
+  `./templates/logInErr.html`,
+  'utf-8'
+);
+
 app.use(express.urlencoded());
 
 app.get('/', (req, res) => {
@@ -35,7 +40,7 @@ app.get('/donate', (req, res) => {
   res.end(donatePage);
 });
 
-app.post('/submit-form', (req, res) => {
+app.post('/bugTracker', (req, res) => {
   renderAndReturn(req, res);
 });
 
@@ -50,17 +55,14 @@ async function renderAndReturn(req, res) {
     let Data = await getData(req.body.cookieValue);
     let output
     // console.log(Data)
-    if (Data.length !== 0) {
+    if (Data !== "logInErr") {
       let tbRow = Data.map(el => replaceTemplate(template_tbRow, el)).join('');
       for (let i = 1; i < Data.length + 1; i++) {
         tbRow = tbRow.replace('##NUMBER##', i);
       }
       output = template_bugTracker.replace('##TABLE_ROW##', tbRow);  
     } else {
-      res.writeHead(404, {
-        'Content-type': 'text/html'
-      });
-      res.end("Something went wrong while getting Data")
+      res.end(loginErPg);
     }
 
     res.end(output);
