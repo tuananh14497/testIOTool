@@ -37,7 +37,7 @@ module.exports = async cookieValue => {
         return "logInErr"
       }
     }
-    await page.waitFor(3000);
+    await page.waitFor(1000);
 
     console.log('#sidebar_tests_expander Expaned');
 
@@ -64,8 +64,8 @@ module.exports = async cookieValue => {
       await page.goto(baseUrl + testCycles[i].link + '/bugs/my?');
       console.log('Going To: ' + baseUrl + testCycles[i].link + '/bugs/my?');
 
-      await page.waitForSelector('.nowrap');
-      await page.waitFor(1000);
+      // await page.waitForSelector('.nowrap');
+      await page.waitFor(500);
 
 
       let bugsListInOneCycle = await page.evaluate(() => {
@@ -91,36 +91,36 @@ module.exports = async cookieValue => {
       i++;
     }
 
-    i = 0;
-    while (i < testCycles.length) {
-      if (bugList[i].length != 0) {
-        let j = 0;
-        while (j < bugList[i].length) {
-          let tmpStr = bugList[i][j].link;
-          if (tmpStr.includes(testCycles[i].link)) {
-            // console.log("Matched")
+    // console.log(bugList)
 
+    i = 0;
+    
+    for (let i = 0; i < bugList.length; i++) {
+      if (bugList[i].length > 0) {
+        for (let j = 0; j < bugList[i].length; j++) {
+          for (let k = 0; k < testCycles.length; k++) {
+            tmpStr = bugList[i][j].link;
+            if (tmpStr.includes(testCycles[k].link)) {
+              Data.push({
+                testCycle: testCycles[k].cycleName,
+                cyclelink: baseUrl + testCycles[i].link,
+                bugTitle: bugList[i][j].bugTitle,
+                bugLink: bugList[i][j].link,
+                bugStatus: bugList[i][j].status
+              });
+            }
+          }
+        }
+      } else {
             Data.push({
               testCycle: testCycles[i].cycleName,
               cyclelink: baseUrl + testCycles[i].link,
-              bugTitle: bugList[i][0].bugTitle,
-              bugLink: bugList[i][0].link,
-              bugStatus: bugList[i][0].status
+              bugTitle: "You haven't submit any Bugs for this Cycle",
+              bugLink: '#',
+              bugStatus: 'N/A'
             });
           }
-          j++;
-        }
-      } else {
-        Data.push({
-          testCycle: testCycles[i].cycleName,
-          cyclelink: baseUrl + testCycles[i].link,
-          bugTitle: "You haven't submit any Bugs for this Cycle",
-          bugLink: 'N/A',
-          bugStatus: 'N/A'
-        });
-      }
-
-      i++;
+      
     }
 
     // console.log(Data);
