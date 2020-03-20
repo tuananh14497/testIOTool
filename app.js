@@ -1,3 +1,5 @@
+const PORT = 3000;
+
 const express = require('express');
 const app = express();
 const getData = require('./modules/getData');
@@ -9,7 +11,6 @@ const homePage = fs.readFileSync(`./index.html`, 'utf-8');
 const helpPage = fs.readFileSync('./pages/help.html', 'utf-8');
 const donatePage = fs.readFileSync('./pages/donate.html', 'utf-8');
 const loginErPg = fs.readFileSync(`./pages/logInErr.html`, 'utf-8');
-
 
 const template_tbRow = fs.readFileSync(`./templates/template_tbRow.html`, 'utf-8');
 const template_bugTracker = fs.readFileSync(`./templates/template_bugTracker.html`, 'utf-8');
@@ -36,8 +37,8 @@ app.post('/bugTracker', (req, res) => {
   renderAndReturn(req, res);
 });
 
-app.listen(3000, () => {
-  console.log('Listening for request on localhost:3000...');
+app.listen(PORT, () => {
+  console.log('Listening for request on localhost:', PORT);
 });
 
 // =========================================================================================
